@@ -27,6 +27,6 @@ export class BingoCard {
   @Column('text')
   o_numbers: string; // "61,65,70,72,75"
 
-  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
 }
