@@ -1,0 +1,11 @@
+export enum BingoPatternType {
+  ANY = 'ANY',
+  ROW = 'ROW',
+  COLUMN = 'COLUMN',
+  DIAGONAL_TL_BR = 'DIAGONAL_TL_BR',
+  DIAGONAL_TR_BL = 'DIAGONAL_TR_BL',
+  FULL_CARD = 'FULL_CARD',
+  CROSS = 'CROSS',
+  FOUR_CORNERS = 'FOUR_CORNERS',
+  ARCO = 'ARCO',
+}
