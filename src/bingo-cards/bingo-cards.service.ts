@@ -70,9 +70,18 @@ export class BingoCardsService {
     return 0;
   }
 
-  private formatSerial(num: number): string {
+  /*private formatSerial(num: number): string {
     return `BNG-${String(num).padStart(4, '0')}`;
+  }*/
+
+  private formatSerial(): string {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let serial = '';
+  for (let i = 0; i < 4; i++) {
+    serial += chars.charAt(Math.floor(Math.random() * chars.length));
   }
+  return serial;
+}
 
   async generateAndSaveUniqueCard(): Promise<BingoCard> {
     // CAMBIO CLAVE: Inicializar generatedData aquí
@@ -121,7 +130,9 @@ export class BingoCardsService {
 
     try {
       const lastSerialNum = await this.getLastSerialValue();
-      const newSerial = this.formatSerial(lastSerialNum + 1);
+     // const newSerial = this.formatSerial(lastSerialNum + 1);
+const newSerial = this.formatSerial();
+
 
       const newBingoCard = this.bingoCardRepository.create({
         serial: newSerial,
